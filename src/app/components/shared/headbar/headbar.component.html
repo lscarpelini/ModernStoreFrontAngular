@@ -1,0 +1,38 @@
+<section class="hero is-primary is-medium animated slideInDown">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            
+            <a routerLink="/home" class="navbar-item font-logo large-text animated pulse">
+              Modern Store App
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <!--<button (click)="addItem()">Adicionar Item</button>-->
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item">Bem Vindo, {{ user }}</a>
+              <a class="navbar-item"  routerLink="/home">Home</a>
+              <a class="navbar-item"  routerLink="/cart">Carrinho ({{ totalItems }})</a>
+              <a class="navbar-item"  routerLink="/">Meu Perfil</a>
+              <span class="navbar-item">
+                <button class="button is-primary is-inverted" (click)="logOut()">
+                  <span class="icon">
+                    <i class="fa fa-power-off"></i>
+                  </span>
+                  <span>Sair</span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+  

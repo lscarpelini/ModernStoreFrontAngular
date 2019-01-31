@@ -1,0 +1,96 @@
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title font-logo">
+        Modern Store App
+      </h1>
+      <!--{{form.value | json}}-->
+      <form [formGroup]="form">
+        <div class="columns">
+            <div class="column is-half is-offset-one-quarter field">
+
+              <div class="notification is-danger" *ngIf="errors.length > 0">
+                <ul>
+                  <li *ngFor="let err of errors">{{ err.message }}</li>
+                </ul>
+              </div>
+
+              <div class="field">
+                  <p class="control" id="userNameControl">
+                    <input 
+                        class="input" 
+                        type="userName" 
+                        placeholder="Usuário" 
+                        formControlName="userName"
+                        [ngClass]="{ 'is-danger' : !form.controls.userName.valid && !form.controls.userName.pristine}">
+                  </p>
+                   <span 
+                        class="help is-danger" 
+                        *ngIf="!form.controls.userName.valid  && !form.controls.userName.pristine">
+                        Usuário invalido
+                   </span>
+              </div>
+              <div class="field">
+                  <p class="control">
+                    <input 
+                        class="input" 
+                        type="password" 
+                        placeholder="Senha"  
+                        formControlName="password"
+                        [ngClass]="{ 'is-danger' : !form.controls.password.valid && !form.controls.password.pristine}">
+                  </p>
+                  <span 
+                      class="help is-danger" 
+                      *ngIf="!form.controls.password.valid && !form.controls.password.pristine">
+                      Senha invalido
+                  </span>
+              </div>
+              <div class="field">
+                    <p class="control">
+                        <button 
+                          (click)="submit()"
+                          class="button is-link is-fullwidth"
+                          [disabled]="!form.valid">
+                          Entrar
+                        </button>
+                    </p>
+              </div>
+              <div class="field">
+                    <p class="control">
+                        <a routerLink="/signup" class="button is-fullwidth is-primary is-outlineds">Ainda não sou cadastrado</a>
+                    </p>
+                    <hr>
+                    <p class="control">
+                        <button 
+                            class="button is-fullwidth is-primary is-outlineds"
+                            (click)="showModal()">
+                            Termos de Uso
+                          </button>
+                    </p>
+              </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="modalTermosDeUso">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Termos de Uso</p>
+        <button class="delete" (click)="hideModal()" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        Olhe os termos de uso. 
+      </section>
+      <footer class="modal-card-foot">
+        <button 
+            class="button" 
+            (click)="hideModal()">
+            Cancel
+        </button>
+      </footer>
+    </div>
+  </div>
